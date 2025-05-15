@@ -78,4 +78,4 @@ def get_string(mensaje: str, mensaje_error: str, longitud: int,
     """
     cadena = input(mensaje)
     return validate.validate_length(cadena, mensaje_error, reintentos,
-                                      longitud)
+                                    longitud)

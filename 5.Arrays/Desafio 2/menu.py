@@ -18,36 +18,6 @@ def main_menu() -> int | None:
     return ingresos.get_int("\nIngrese opcion: ",
                             "Error, reingrese opcion valida: ", 0, 5, 10)
 
-def menu_ingreso_productos(lista: list) -> bool:
-    """Permite ingresar elementos a la lista
-
-    Args:
-        lista (list): Lista a concatenar elementos
-
-    Returns:
-        bool: devuelve True si se ingreso de manera correcta, False si no
-        finalizao correctamente
-    """
-    opcion = 1
-    while opcion == 1 :
-        nuevo_producto = ingresos.get_string("Ingrese nuevo producto: ",
-                                             "Error, nombre de producto muy largo. Reingrese: ",
-                                             15, 10)
-        if nuevo_producto != None:
-            lista.append()
-        else:
-            print("Error al ingresar el producto, se corta la carga")
-            input("Presione Enter para continuar... ")
-            return False
-
-        opcion = ingresos.get_int("Desea ingresar mas productos?\n1- Si\n2- No\nIngrese opcion: ",
-                                  "Error, reingrese opcion 1 o 2: ", 1, 2, 10)
-        if nuevo_producto == None:
-            print("Error, se ingreso la opcion mal en varias ocaciones, se corta la carga")
-            input("Presione Enter para continuar... ")
-            return False
-    return True
-
 def productos_mas_comun(lista_A: list, lista_B: list) -> list | None:
     """Busca los elementos mas comunes en las listas y las devuelve en una sola
 

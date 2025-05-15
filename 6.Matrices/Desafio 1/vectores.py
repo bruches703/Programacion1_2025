@@ -27,6 +27,7 @@ def crear_array(mensaje: str, mensaje_error: str, minimo: int,
     Returns:
         list | None: Retorna la lista de enteros, o None si hay algun fallo
     """
+    
     array_de_numeros = new_Array(cantidad_elementos)
     for i in range(cantidad_elementos):
         elemento = ingresos(mensaje, mensaje_error, minimo, maximo, reintentos)
@@ -36,4 +37,3 @@ def crear_array(mensaje: str, mensaje_error: str, minimo: int,
         else:
             array_de_numeros[i] = elemento
     return array_de_numeros
-
