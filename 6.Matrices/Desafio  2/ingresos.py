@@ -23,7 +23,7 @@ def get_int(mensaje: str, mensaje_error: str, minimo: int,
         un valor valido
     """
     numero = int(input(mensaje))
-    return validate.validate_number(numero, mensaje_error,
+    return validate.validate_number(numero, "Error de ingreso, reingrese: ",
                                       minimo, maximo, 10)
 
 
@@ -79,14 +79,3 @@ def get_string(mensaje: str, mensaje_error: str, longitud: int,
     cadena = input(mensaje)
     return validate.validate_length(cadena, mensaje_error, reintentos,
                                       longitud)
-
-def menu() -> int:
-    """Muestra un menu por pantalla para que el usuario elija una opcion
-
-    Returns:
-        int: opcion escogida por el usuario
-    """
-    pass
-    print("0-Salir")
-    return get_int("Ingrese opcion: ", "Opcion incorrecta, reingrese: ", 0, 2, 10)
-    

@@ -13,7 +13,7 @@ def new_Array(cantidad_elementos: int) -> list:
         list: array de enteros con cantidad de
         elementos ingresados por parametro
     """
-    nuevo_array = [0] * cantidad_elementos
+    nuevo_array = [] * cantidad_elementos
 
     return nuevo_array 
 

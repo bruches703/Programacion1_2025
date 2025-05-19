@@ -7,8 +7,4 @@ def generar_id_coches(matriz: list) -> None:
         
         matriz (list): Matriz con carga 0 a modificar
     """
-    matriz[0] = 1001
-    matriz[1]= 2001
-    matriz[2] = 3001
-
     return None

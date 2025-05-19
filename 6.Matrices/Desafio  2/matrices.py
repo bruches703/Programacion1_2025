@@ -1,5 +1,5 @@
 import ingresos
-def inicialziar_matriz(cantidad_filas: int, cantidad_columnas: int, valor_inicial: any) -> list:
+def crear_matriz(cantidad_filas: int, cantidad_columnas: int) -> list:
     """Inicializa la matriz
 
     Args:
@@ -12,7 +12,7 @@ def inicialziar_matriz(cantidad_filas: int, cantidad_columnas: int, valor_inicia
     """
     matriz = []
     for fila in range(cantidad_filas):
-        fila = [valor_inicial] * cantidad_columnas
+        fila = [] * cantidad_columnas
         matriz += [fila]
     return matriz
 
@@ -24,7 +24,8 @@ def carga_matriz_secuencial(matriz: list) -> None:
     """
     for fila in range(len(matriz)):
         for columna in range(len(matriz[fila])):
-            matriz[fila][columna] = ingresos.get_int("Ingrese numero: ", "Error, reingrese: ", 0, 10, 10)
+            matriz[fila][columna] = ingresos.get_int(
+                "Ingrese numero: ", "Error, reingrese: ", 0, 10, 10)
     return None
 
 def cargar_matriz_aleatoriamente(matriz: list) -> None:
@@ -54,6 +55,7 @@ def buscar_valor_entero(matriz: list, valor: int) -> None:
         for j in range(len(matriz[i])):
             if matriz[i][j] == valor:
                 print(f"Se encontro el numero en la fila {i} columna {j}!")
+
 def contar_elementos_matriz(matriz:list) -> int:
     """Cuenta la cantidad de elementos de una matriz
 
