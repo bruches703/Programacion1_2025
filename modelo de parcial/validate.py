@@ -22,7 +22,7 @@ def validate_number_int(numero: int, mensaje_error: str, minimo: int,
     return numero
 
 def validate_number_float(numero: float, mensaje_error: str, minimo: int,
-                          maximo: int, reintentos: int) -> int | None:
+                    maximo: int, reintentos: int) -> int | None:
     """Valida un numero en un rango minimo y maximo
 
     Args:

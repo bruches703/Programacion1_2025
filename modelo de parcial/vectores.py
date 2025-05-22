@@ -1,6 +1,6 @@
-from Ingresos import get_int
-from Validate import validate_length
-from Funciones_Generales import calcular_porcentaje
+import ingresos
+from validate import validate_length
+
 def new_Array(cantidad_elementos: int = 0, elemento: any = 0) -> list:
     """Crea un arreglo inicializado con 0 con la cantidad
     de elementos indicada en parametro
@@ -43,7 +43,7 @@ def crear_array(mensaje: str, mensaje_error: str,
     """
     array_de_numeros = new_Array(cantidad_elementos)
     for i in range(cantidad_elementos):
-        elemento = get_int(mensaje, mensaje_error, minimo, maximo, reintentos)
+        elemento = ingresos(mensaje, mensaje_error, minimo, maximo, reintentos)
         if elemento == None:
             print("Error de ingreso, finaliza el programa")
             return None
@@ -77,8 +77,7 @@ def completar_caracteres_restantes(cadena: str, longitud: int,
             break
     return cadena
 
-def obtener_indice(lista: list, elemento: any,
-                   indice_inicial: int = 0) -> int | None:
+def obtener_indice(lista: list, elemento: any, indice_inicial: int=0) -> int | None:
     """Encuentra el elemento y devuelve el indice donde
     esta posicionado
     Args:
@@ -142,34 +141,3 @@ def sumar_elementos(lista: list) -> int:
     for elemento in lista:
         suma += elemento
     return suma
-
-def porcentaje_lista(lista: list, valor_parcial: int | float) -> float:
-    """Calcula el porcentaje de la lista
-
-    Args:
-        lista (list): lista a calcular el porcentaje
-        valor_parcial(int | float): valor a calcualr el porcentaje
-
-    Returns:
-        float: porcentaje de la lista
-    """
-    suma = sumar_elementos(lista)
-    porcentaje = calcular_porcentaje(suma, valor_parcial)
-    return porcentaje
-
-def mostrar_elementos(lista: list) -> bool:
-    """Muestra los elementos de la lista
-
-    Args:
-        lista (list): lista a mostrar
-
-    Returns:
-        bool: devuelve True si se imprime correctamente,
-        False si hubo algun error
-    """
-    if len(lista) == 0:
-        return False
-    else:
-        for elemento in list:
-            print(elemento)
-        return True

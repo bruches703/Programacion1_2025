@@ -8,7 +8,7 @@ def controlar_menu() -> int:
     """
     array = []
     while True:
-         match (Menu_opciones.menu(array)):
+        match(Menu_opciones.menu(array)):
             case 1:
                 # Genera un nuevo array donde el usuario ingrese los valores del -1000 al 1000
                 array = Menu_opciones.opcion_1()

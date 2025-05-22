@@ -1,7 +1,7 @@
-import Ingresos
-from Vectores import *
+import ingresos
+from vectores import *
 
-def inicialziar_matriz(cantidad_filas: int, cantidad_columnas: int, valor_inicial: any) -> list:
+def crear_matriz(cantidad_filas: int, cantidad_columnas: int, valor_inicial: any) -> list:
     """Inicializa la matriz
 
     Args:

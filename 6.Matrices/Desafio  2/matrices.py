@@ -56,7 +56,7 @@ def buscar_valor_entero(matriz: list, valor: int) -> None:
             if matriz[i][j] == valor:
                 print(f"Se encontro el numero en la fila {i} columna {j}!")
 
-def contar_elementos_matriz(matriz:list) -> int:
+def contar_elementos_matriz(matriz: list) -> int:
     """Cuenta la cantidad de elementos de una matriz
 
     Args:
