@@ -23,7 +23,7 @@ def get_int(mensaje: str, mensaje_error: str, minimo: int,
         un valor valido
     """
     numero = int(input(mensaje))
-    return validate.validate_number(numero, mensaje_error,
+    return Validate.validate_number_int(numero, mensaje_error,
                                       minimo, maximo, 10)
 
 
@@ -51,7 +51,7 @@ def get_float(mensaje: str, mensaje_error: str, minimo: int,
         hay un valor valido
     """
     numero = float(input(mensaje))
-    numero = validate.validate_number(numero, "Error de ingreso, reingrese: ",
+    numero = Validate.validate_number_float(numero, "Error de ingreso, reingrese: ",
                                       minimo, maximo, 10)
     return numero
 

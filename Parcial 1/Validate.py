@@ -14,37 +14,13 @@ def validate_number_int(numero: int, mensaje_error: str, minimo: int,
         int |  None: valor validado
     """
     intentos = 0
-    while (numero < minimo or numero > maximo) or intentos < reintentos:
+    while (numero < minimo or numero > maximo) and intentos < reintentos or type(numero) is not int:
         numero = int(input(mensaje_error))
         intentos += 1
     if intentos >= reintentos:
         return None
     return numero
 
-def validate_number_float(numero: float, mensaje_error: str, minimo: int,
-                          maximo: int, reintentos: int) -> int | None:
-    """Valida un numero en un rango minimo y maximo
-
-    Args:
-        numero (int): Numero flotante a validar
-        mensaje_error (str): Cadena con el mensaje de error y reingreso
-        minimo (int): valor minimo a validar
-        maximo (int): valor maximo a validar
-        reintentos (int): cantidad de veces que se puede reintentar o
-        hubo un error
-
-    Returns:
-        float |  None: valor validado
-    """
-    intentos = 0
-    while (numero < minimo or numero > maximo) or intentos < reintentos:
-        numero = float(input(mensaje_error))
-        intentos += 1
-    if intentos >= reintentos:
-        return None
-    else:
-        return numero
-    
 def validate_length(cadena: str, mensaje_error: str,  reintentos: int, longitud: int, longitud_min: int=0) -> str | None:
     """Valida el largo de la cadena
 
@@ -72,21 +48,6 @@ def validate_length(cadena: str, mensaje_error: str,  reintentos: int, longitud:
         return cadena
     else:
         return None
-
-def contar_caracteres(cadena: str) -> int:
-    """Cuenta los caracteres de la cadena
-
-    Args:
-        cadena (str): la cadena que debe contarse los caracteres
-
-    Returns:
-        int: devuelve en valor en entero de la cantidad de
-        caracteres de la cadena
-    """
-    contador = 0
-    for i in range(cadena):
-        contador += 1
-    return contador
 
 def validar_caracteres(cadena: str) -> bool:
     """Valida una cadena de caracteres, corrabora que no
@@ -125,3 +86,4 @@ def comparar_cadenas_ignorando_case(cadena1: str, cadena2: str) -> bool:
         if ord(cadena1[i]) != ord(cadena2[i]) and ord(cadena1[i]) != ord(cadena2[i]) + 32 and ord(cadena1[i]) != ord(cadena2[i]) - 32:
             return False
     return True
+

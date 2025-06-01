@@ -26,8 +26,42 @@
 # print (suma2)
 
 # n = len(cuadrado)
-array = [1, 2, 3, 4]
-print(array)
-elemento = "Hola"
-array += [elemento]
-print(array)
+# array = [1, 2, 3, 4]
+# print(array)
+# elemento = "Hola"
+# array = []
+# array += [elemento]
+# print(array[0])
+
+# cadenaA = 'hola mundo'
+# cadenaB = 'HOLA MUNDO'
+# print(f"ID: {cadenaA[0:6]}")
+# print(f"ID: {id(cadenaB)}")
+
+# caracter = 'A'
+# codigo_ascii = ord(caracter)
+# print(codigo_ascii)  # Imprime 65
+
+
+
+def copiar_vector(lista: list) -> list:
+    """Copia un vector y devuelve una copia
+
+    Args:
+        lista (list): lista a copiar
+
+    Returns:
+        list: copia del vector
+    """
+    if len(lista) == 0:
+        return []
+    else:
+        copia = []
+        for i in range(len(lista)):
+            copia += [lista[i]]
+        return copia
+    
+a = [[1,2,3,],[4,5,6],[7,8,9]]
+b = []
+b = copiar_vector(a)
+print(b)
