@@ -1,4 +1,4 @@
-from Ingresos import get_int
+from Funciones_Inputs import get_int
 from Validate import validate_length
 from Funciones_Generales import calcular_porcentaje
 

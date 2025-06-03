@@ -1,5 +1,5 @@
-from Ingresos import *
-from Vectores import *
+from Funciones_Inputs import *
+from Funciones_Vectores import *
 
 def crear_matriz(cantidad_filas: int, cantidad_columnas: int, valor_inicial: any) -> list:
     """Inicializa la matriz

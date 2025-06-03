@@ -1,6 +1,6 @@
-from Ingresos import *
-from Matrices import *
-from Vectores import *
+from Funciones_Inputs import *
+from Funciones_Matrices import *
+from Funciones_Vectores import *
 import os
 
 # Funcion de limpiar pantalla
@@ -8,7 +8,7 @@ def limpiar_pantalla():
     """Limpia la pantalla
     """
     os.system('cls')
-
+#----------------------------------------------------------------------------------------
 # Funcion con el menu de opciones
 def menu() -> int:
     """Muestra un menu por pantalla para que el usuario elija una opcion
@@ -31,10 +31,10 @@ def menu() -> int:
     print("9. Top 3 participantes")
     print("10. Participantes ordenados alfabeticamente")
     print("0. Salir")
-    
+    # Levanta la opcion del usuario, lo valida y lo devuelve
     opcion = get_int("Seleccione una opcion: ", "Error, reingrese: ", 0, 10, 10)
     return opcion
-
+#----------------------------------------------------------------------------------------
 # Funcion de opcion 1
 def cargar_participantes(participantes: list) -> bool:
     """Carga los participantes en el array
@@ -48,11 +48,13 @@ def cargar_participantes(participantes: list) -> bool:
     mensaje_error = "Error, reingrese el nombre: "
     # Carga los participantes en el vector
     for i in range(len(participantes)):
+        # Guardamos "mensaje" y "nombre" para quue al llamar la funcion get_string
+        # sea mas legible
         mensaje = f"Ingrese el nombre del participante {i+1}: "
         nombre = get_string( mensaje, mensaje_error, 3, 30, 10)
         participantes[i] = nombre
     return True
-
+#----------------------------------------------------------------------------------------
 # Funcion de opcion 2
 def cargar_puntuaciones(participantes: list, puntuaciones: list) -> bool:
     """Carga las puntuaciones de los participantes
@@ -81,7 +83,7 @@ def cargar_puntuaciones(participantes: list, puntuaciones: list) -> bool:
                 puntuaciones[i][j] = elemento
         print("\n")
     return True
-
+#----------------------------------------------------------------------------------------
 # Funcion de opcion 3
 def mostrar_puntuaciones(participantes: list, puntuaciones: list):
     """Muestra las puntuaciones de los participantes
@@ -113,7 +115,7 @@ def mostrar_puntuacion_un_participante(participant: str, puntuaciones: list):
     for i in range(len(puntuaciones)):
         print(f"Puntuacion jurado {i+1}: {puntuaciones[i]}")
     print(f"Promedio: {promedio_vector(puntuaciones):.2f}")
-
+#----------------------------------------------------------------------------------------
 # Funciones de opcion 4 y 5
 def participantes_con_promedio_mayor_a(participantes: list,
                                        puntuaciones: list, promedio_esperado: int):
