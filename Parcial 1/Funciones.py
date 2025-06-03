@@ -111,7 +111,9 @@ def mostrar_puntuacion_un_participante(participant: str, puntuaciones: list):
         indice (int): Indice del participante a mostrar
 
     """
+    # Mostramos el participante
     print(f"Participante: {participant}")
+    # Recorremos la lista de puntuaciones e imprimimos las puntuaciones
     for i in range(len(puntuaciones)):
         print(f"Puntuacion jurado {i+1}: {puntuaciones[i]}")
     print(f"Promedio: {promedio_vector(puntuaciones):.2f}")
@@ -125,8 +127,14 @@ def participantes_con_promedio_mayor_a(participantes: list,
         participantes (list): Array de participantes
         puntuaciones (list): Matriz de puntuaciones
     """
+    # Inicializamios una variable de control en TRUE que validara que no hay participantes
+    # con promedio mayor a 4
     flag = True
+    # Recorremos la listas de puntuacions, utilizamos la lsita PARTICIPANTES para el bucle
+    # porque tiene la misma cantidad de elementos
     for i in range(len(participantes)):
+        # Sumamos los elementos en la funcion que recibe una lista y suma cada uno. El resultado
+        # lo dividimos por la cantidad de elementos de la lista y obtenemos el promedio
         promedio = sumar_elementos(puntuaciones[i]) / len(puntuaciones[i])
         if promedio > promedio_esperado:
             flag = False
@@ -144,13 +152,17 @@ def promedio_jurado(puntuaciones: list) -> list:
     Returns:
         list: Lista con los promedios de cada jurado
     """
+    # Evaluamos que la lista no este vacia, sino devuelve una lista vacia
     if len(puntuaciones) == 0:
         return []
-    
+    # Creamos la lista de PROMEDIOS
     promedios = []
+    # Recorremos la lista
     for i in range(len(puntuaciones[0])):
         suma = 0
         for j in range(len(puntuaciones)):
+            # Usamos las variables de control invertidas, porque necesitamos
+            # los elementos de cada columna y los sumamos y calculamos el promedio
             suma += puntuaciones[j][i]
         promedios += [suma / len(puntuaciones)]
     return promedios
@@ -273,32 +285,39 @@ def top_tres_participantes(participantes: list, puntuaciones: list):
         participantes (list): Array de participantes
         puntuaciones (list): Matriz de puntuaciones
     """
+    # Evaluamos que las listas no esten vacias
     if len(participantes) == 0 or len(puntuaciones) == 0:
         print("No hay participantes o puntuaciones cargadas.")
-        return
-    promedios = []
-    participantes_auxiliar = []
-    participantes_auxiliar = copiar_vector(participantes)
-    for i in range(len(participantes_auxiliar)):
-        promedios += [promedio_vector(puntuaciones[i])]
-
-    auxiliar_float = 0
-    auxiliar_string = ""
-    for i in range(len(promedios)-1):
-        for j in range(i+1, len(promedios)):
-            if promedios[i] < promedios[j]:
-                # Intercambia los promedios
-                auxiliar_float = promedios[i]
-                promedios[i] = promedios[j]
-                promedios[j] = auxiliar_float
-                # Intercambia los participantes
-                auxiliar_string = participantes_auxiliar[i]
-                participantes_auxiliar[i] = participantes_auxiliar[j]
-                participantes_auxiliar[j] = auxiliar_string
-
-    print("Top 3 participantes con mejor promedio:")
-    for i in range(3):
-        print(f"Top {i+1}.Participante {participantes_auxiliar[i]} con promedio: {promedios[i]:.2f}")
+    else:
+        # Creamos dos listas, una tendra los promedios de cada participante
+        # la otra es un auxiliar para guardar los participantes y
+        # no modificar la lista original
+        promedios = []
+        participantes_auxiliar = []
+        # Copiamos la lista de participantes a la auxiliar
+        participantes_auxiliar = copiar_vector(participantes)
+        for i in range(len(participantes_auxiliar)):
+            promedios += [promedio_vector(puntuaciones[i])]
+        # inicializamos las variables auxiliares para el swapeo
+        auxiliar_float = 0
+        auxiliar_string = ""
+        # Recorremos la lista de PROMEDIOS y calculamos
+        # cual tuvo el promedio de mayor valor
+        for i in range(len(promedios)-1):
+            for j in range(i+1, len(promedios)):
+                if promedios[i] < promedios[j]:
+                    # Intercambia los promedios
+                    auxiliar_float = promedios[i]
+                    promedios[i] = promedios[j]
+                    promedios[j] = auxiliar_float
+                    # Intercambia los participantes
+                    auxiliar_string = participantes_auxiliar[i]
+                    participantes_auxiliar[i] = participantes_auxiliar[j]
+                    participantes_auxiliar[j] = auxiliar_string
+        # Mostramos todo por pantalla
+        print("Top 3 participantes con mejor promedio:\n")
+        for i in range(3):
+            print(f"Top {i+1}.Participante {participantes_auxiliar[i]} con promedio: {promedios[i]:.2f}")
 
 # Funcion de opcion 10
 def mostrar_participantes_ordenados_alfabetico(participantes: list, puntuaciones: list):
