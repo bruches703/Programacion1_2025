@@ -149,7 +149,7 @@ def mostrar_elementos(lista: list) -> bool:
     if len(lista) == 0:
         return False
     else:
-        for elemento in lista:
+        for elemento in list:
             print(elemento)
         return True
     

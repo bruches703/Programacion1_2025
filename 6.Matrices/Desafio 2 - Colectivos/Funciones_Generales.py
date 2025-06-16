@@ -1,9 +1,4 @@
 import os
-def limpiar_pantalla():
-    """Limpia la pantalla
-    """
-    os.system('cls' if os.name == 'nt' else 'clear')
-    
 def calcular_porcentaje(valor_total: int | float, valor_parcial: int | float) -> float:
     """calcula el porcentaje del valor total
 
@@ -15,3 +10,8 @@ def calcular_porcentaje(valor_total: int | float, valor_parcial: int | float) ->
         float: porcentaje del valor parcial
     """
     porcentaje = valor_parcial * 100 / valor_total
+
+def limpiar_pantalla():
+    """Limpia la pantalla
+    """
+    os.system('cls' if os.name == 'nt' else 'clear')

@@ -41,27 +41,65 @@
 # caracter = 'A'
 # codigo_ascii = ord(caracter)
 # print(codigo_ascii)  # Imprime 65
+diccionario = [
+    {
+        "Tema": "Ariana Grande | The Weeknd - Starlight",
+        "Vistas": "15 millones",
+        "Duracion": "3:50",
+        "Link Youtube": "https://www.youtube.com/watch?v=ficticio2024c",
+        "Fecha lanzamiento": "2024-11-01"
+    },
+    {
+        "Tema": "Dua Lipa | Sia - Electric Love",
+        "Vistas": "20 millones",
+        "Duracion": "3:30",
+        "Link Youtube": "https://www.youtube.com/watch?v=ficticio2025a",
+        "Fecha lanzamiento": "2025-02-14"
+    },
+    {
+        "Tema": "The Weeknd | Ariana Grande - Midnight Sky",
+        "Vistas": "30 millones",
+        "Duracion": "4:00",
+        "Link Youtube": "https://www.youtube.com/watch?v=ficticio2025b",
+        "Fecha lanzamiento": "2025-06-10"
+    }
+]
 
+primer_elemento = diccionario[0]
 
+print(primer_elemento["Vistas"])
+# indice_guion = primer_elemento["Tema"].find("-")
+# subcadena = primer_elemento["Tema"][:indice_guion]
 
-def copiar_vector(lista: list) -> list:
-    """Copia un vector y devuelve una copia
-
-    Args:
-        lista (list): lista a copiar
-
-    Returns:
-        list: copia del vector
-    """
-    if len(lista) == 0:
-        return []
-    else:
-        copia = []
-        for i in range(len(lista)):
-            copia += [lista[i]]
-        return copia
+# flag = True
+# colaboradores = ""
+# for i in range(len(primer_elemento["Tema"])):
+#     if primer_elemento["Tema"][i] == "-":
+#         break
+#     else:
+#         colaboradores += primer_elemento["Tema"][i]
     
-a = [[1,2,3,],[4,5,6],[7,8,9]]
-b = []
-b = copiar_vector(a)
-print(b)
+# colaborador = ""
+# lista_colaboradores = []
+# i = 0
+# while i < len(colaboradores):
+#     if colaboradores[i] == "|" or i == len(colaboradores)-1:
+#         lista_colaboradores += [colaborador]    
+#         colaborador = ""
+#         i += 2
+#     else:
+#         colaborador += colaboradores[i]
+#         i += 1
+# indice_pippe = subcadena.find('|')
+# if indice_pippe > 0:
+#     print(subcadena[:indice_pippe])  # Imprime desde el inicio hasta antes de '|'
+# elif indice_pippe == 0:
+#     print("El carácter '|' está al principio, no hay nada antes.")
+# else:
+#     print("No se encontró '|'")
+
+if primer_elemento["Vistas"].isnumeric():
+    print("Es un numero")
+else:
+    print("No es un numero")
+    

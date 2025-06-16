@@ -13,6 +13,7 @@ def validate_number_int(numero: int, mensaje_error: str, minimo: int,
     Returns:
         int |  None: valor validado
     """
+
     intentos = 0
     while (numero < minimo or numero > maximo) and intentos < reintentos or type(numero) is not int:
         numero = int(input(mensaje_error))
@@ -37,7 +38,7 @@ def validate_number_float(numero: float, mensaje_error: str, minimo: int,
         float |  None: valor validado
     """
     intentos = 0
-    while (numero < minimo or numero > maximo) or intentos < reintentos:
+    while (numero < minimo or numero > maximo) or intentos < reintentos or type(numero) is not float:
         numero = float(input(mensaje_error))
         intentos += 1
     if intentos >= reintentos:
